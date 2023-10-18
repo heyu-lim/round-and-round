@@ -1,0 +1,378 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    font-family: 'Inter', sans-serif;
+}
+
+main {
+    position: relative;
+    text-align: center;
+    margin-bottom: -5px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+img {
+    width: 100%; 
+    margin-bottom: 0;
+}
+
+.nav-bar {
+    background-color: #0A4136; /* Semi-transparent white background */
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; /* Set the width of the navigation bar */
+    margin-top: 30px;
+    padding: 10px 10px; /* Add some padding for better visibility */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+}
+
+#logo {
+    font-weight: 700;
+}
+
+.nav-items {
+    list-style: none; /* Remove default list styles */
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Distribute items evenly */
+}
+
+.nav-items li {
+    display: inline;
+    margin: 0 15px; /* Add spacing between navigation items */
+}
+
+aside {
+    background-color: #0A4136;
+    height: auto;
+    overflow: hidden; /* Hides the overflow content */
+}
+
+.text-animation {
+    margin: 0; 
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+    animation: slide 15s linear infinite; /* Animation name, duration, timing function, iteration count (infinite for continuous) */
+    padding: 20px; /* Add some padding for better visibility */
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0%); /* Initial position: move text to the right of the container */
+    }
+    100% {
+        transform: translateX(-100%); /* Final position: move text to the left of the container */
+    }
+}
+
+.secret-sauce {
+    background-color: #f5f5dc;
+    color: #0A4136;
+    height: auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.menu-section {
+    text-align: center;
+    padding: 30px;
+    color: #ffffff;
+    background-color: #0A4136;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+/* SCROLL SNAPPING */
+.scroll-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    list-style-type: none;
+}
+
+.scroll-item {
+    padding-top: 20px;
+    scroll-snap-align: center;
+    width: 300px;
+    height: 500px;
+    position: relative; 
+}
+
+.scroll-item img {
+    border-radius: 5px; 
+    margin-bottom: 30px;
+}
+
+.scroll-item h3 {
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+}
+
+/* FLEXBOX LAYOUT */
+.scroll-container[data-layoutmethod="flexbox"] {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    white-space: nowrap; /* Prevent content from wrapping */
+}
+
+.scroll-container[data-layoutmethod="flexbox"] .scroll-item {
+    padding-left: 0;
+    margin-right: 15px;
+    flex: 0 0 auto;
+    min-width: 0; /* Ensure items can shrink beyond their intrinsic width */
+}
+
+.scroll-container[data-layoutmethod="flexbox"] .scroll-item img {
+    max-width: 100%; /* Ensure images don't exceed their container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Webkit-based browsers (Chrome, Safari) */
+.scroll-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #062a23; /* Color of the thumb */
+    border-radius: 6px; /* Round the corners of the thumb */
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: #062a23; /* Hover color of the thumb */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background-color: #f1f1f14a; /* Color of the track */
+    border-radius: 50px; /* Round the corners of the track */
+}
+
+.reservation-section {
+    background-color: beige;
+    padding-bottom: 30px;
+}
+
+.reservation-section h1 {
+    color: #0A4136;
+    margin: 0;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px; /* Add padding to the form container */
+    color: #0A4136; /* Light yellow text color */
+    border-radius: 10px; /* Rounded corners for the form */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Increase margin between form groups */
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0A4136; /* Light yellow label text color */
+}
+
+/* Set a specific width for input elements within .form-group */
+.form-group input[type="text"],
+.form-group select,
+.form-group input[type="date"] {
+    width: calc(100% - 20px); /* Subtract padding and border widths */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.date-time-pax {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px; /* Add margin between date-time-pax and other form groups */
+}
+
+button {
+    background-color: #0A4136; /* Dark green button color */
+    font-family: 'Inter', sans-serif;
+    font-size: 0px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    padding: 15px 15px; /* Adjust button padding */
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 40px;
+    width: 200px; /* Set a specific width for the button */
+    margin: 10PX auto; /* Center the button horizontally */
+}
+
+button:hover {
+    background-color: #EF4224; /* Black button color on hover */
+}
+
+
+.promotion-section {
+    text-align: center;
+    padding: 30px;
+    color: #ffffff;
+    background-color: #0A4136;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+/* SCROLL SNAPPING */
+.promo-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    list-style-type: none;
+}
+
+.promo-item {
+    padding-top: 20px;
+    scroll-snap-align: center;
+    width: 60%;
+}
+
+.promo-item img {
+    border-radius: 5px; 
+    margin-bottom: 30px;
+}
+
+/* FLEXBOX LAYOUT */
+.promo-container[data-layoutmethod="flexbox"] {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    white-space: nowrap; /* Prevent content from wrapping */
+}
+
+.promo-container[data-layoutmethod="flexbox"] .promo-item {
+    padding-left: 0;
+    margin-right: 15px;
+    flex: 0 0 auto;
+    min-width: 0; /* Ensure items can shrink beyond their intrinsic width */
+}
+
+.promo-container[data-layoutmethod="flexbox"] .promo-item img {
+    max-width: 100%; /* Ensure images don't exceed their container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Webkit-based browsers (Chrome, Safari) */
+.promo-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.promo-container::-webkit-scrollbar-thumb {
+    background-color: #062a23; /* Color of the thumb */
+    border-radius: 6px; /* Round the corners of the thumb */
+}
+
+.promo-container::-webkit-scrollbar-thumb:hover {
+    background-color: #062a23; /* Hover color of the thumb */
+}
+
+.promo-container::-webkit-scrollbar-track {
+    background-color: #f1f1f14a; /* Color of the track */
+    border-radius: 50px; /* Round the corners of the track */
+}
+
+
+.location-section{
+    text-align: center;
+    padding: 30px;
+    color: #0A4136;
+    background-color: beige;
+}
+
+.location-section p {
+    margin-top: -10px;
+}
+
+.locations-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    padding-top: 30px;
+}
+
+.location {
+    text-align: center;
+    width: 30%;
+    border-right: 1px solid #ccc; /* Add a border to the right side for separation */
+    padding-right: 20px; /* Add some padding to the right of each column */
+}
+
+.location:last-child {
+    border-right: none; /* Remove the border from the last column */
+}
+
+.location img {
+    width: 40px; /* Adjust icon size as needed */
+    height: 40px;
+}
+
+.location h2 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.location p {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: -5px;
+}
+
+
+footer {
+    background-color: #EF4224;
+    color: white;
+    margin: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content h3 {
+    font-size: 14px;
+    margin: 20px;
+    font-weight: 500;
+}
+
+.footer-content p {
+    font-size: 14px;
+    margin: 20px;
+    font-weight: 300;
+}
